@@ -5,12 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fontes de pesquisa</title>
     <style>
-        
+        .referenceline {
+            display: flex;
+        }
+
+        .fontes {
+            align-items: left;
+            justify-content: left;
+        }
+
+        .navbarfontes {
+            width: 220px;
+            margin-top: 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+            padding: 0px;
+        }
+
+        .materia {
+            color: white;
+            font-size: 20px;
+            width: 200px;
+            background-color: rgb(30, 30, 120);
+            border-radius: 0px;
+            padding: 5px;
+            border-style: solid;
+            border-color: wheat;
+            border-width: 3px;
+        }
+
+        .materia:hover {
+            background-color: rgb(80, 80, 255);
+        }
+
+        .referencias {
+            width: 350px;
+            margin-top: 20px;
+        }
     </style>
 </head>
-<body>
-    <div>
-        <h1>Fontes de pesquisa</h1>
-    </div>  
+<body class="fontes">
+    <h1>Fontes de pesquisa</h1>
+    <div class="referenceline">
+        <div class="navbarfontes">
+            <nav>
+                <ul>
+                    <li>
+                        <button class="materia" onclick="setArtes()">Artes</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setAutomacao()">Automação</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setBiologia()">Biologia</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setCiencias()">Ciências</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setEletrica()">Elétrica</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setFisica()">Física</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setGeografia()">Geografia</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setHistoria()">História</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setIngles()">Inglês</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setPortugues()">Lingua portuguesa</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setMatematica()">Matemática</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setMecanica()">Mecânica</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setProgramacao()">Programação</button>
+                    </li>
+                    <li>
+                        <button class="materia" onclick="setQuimica()">Química</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div id="referencias" class="referencias"></div>
+    </div>
+    
 </body>
 </html>
