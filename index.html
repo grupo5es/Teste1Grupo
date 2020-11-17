@@ -277,6 +277,10 @@
             height: 370px;
             font-size: 20px;
         }
+
+        .pesquisa {
+            font-size: 20px;
+        }
     </style>
 </head>
 
@@ -294,18 +298,18 @@
             </div>
             <div class="quadrocont">
                 <h2>Repetições no texto Estudado</h2>
-                <div class="result"></div>
+                <div id="chave" class="result"></div>
             </div>
         </div>
         <div class="line2">
             <div class="colar">
-                <h2>Cole Aqui</h2>                
-                <textarea class="textocolar"></textarea>                
+                <h2>Cole Aqui</h2>
+                <textarea id="txt" class="textocolar" onchange="search()"></textarea>
             </div>
 
             <div class="chave">
                 <h2>Itens Chave</h2>
-                    <textarea class="textochave"></textarea>
+                <textarea class="textochave"></textarea>
             </div>
 
             <div class="resumo">
@@ -318,7 +322,7 @@
         <nav>
             <ul>
                 <li>
-                    <a href="paginas/calendario.html">Calendário</a>
+                    <a target='_blank' href="paginas/calendario.html">Calendário</a>
                 </li>
                 <li>
                     <a href="paginas/fontes.html">Fontes de pesquisa</a>
@@ -387,6 +391,55 @@
             document.getElementById("referencias").innerHTML = "<h2>Química</h2><br><a target='_blank' href='https://netdidata.blogspot.com/2016/01/teoria-completa-de-quimica-para.html'>https://netdidata.blogspot.com/2016/01/teoria-completa-de-quimica-para.html</a><br><br><a target='_blank' href='https://www.soq.com.br/'>https://www.soq.com.br/</a>";
         }
 
+    </script>
+    <script>
+        function search() {
+            var data = document.getElementById('txt').value.toLowerCase();
+            var temp = data;
+            var words = new Array();
+            words = temp.split(/[.,?!w]?\s+/);
+            var uniqueWords = new Array();
+            var count = new Array();
+            var trocado;
+            var aux;
+
+            for (var i = 0; i < words.length; i++) {
+                //var count=0;
+                var f = 0;
+                for (j = 0; j < uniqueWords.length; j++) {
+                    if (words[i] == uniqueWords[j]) {
+                        count[j] = count[j] + 1;
+                        //uniqueWords[j]=words[i];
+                        f = 1;
+                    }
+                }
+                if (f == 0) {
+                    count[i] = 1;
+                    uniqueWords[i] = words[i];
+                }
+            }
+
+            do {
+                trocado = 0;
+                for (i = 0; i < uniqueWords.length; i++) {
+                    if (count[i + 1] > count[i]) {
+                        aux = count[i + 1];
+                        count[i + 1] = count[i];
+                        count[i] = aux;
+                        aux = uniqueWords[i + 1];
+                        uniqueWords[i + 1] = uniqueWords[i];
+                        uniqueWords[i] = aux;
+                        trocado = 1;
+                    }
+                }
+            }
+            while (trocado > 0);
+
+            for (i = 0; i < uniqueWords.length; i++) {
+                if (typeof count[i] !== 'undefined' && typeof uniqueWords[i] !== 'undefined' && count[i] > 2 && uniqueWords[i] !== ' ' && uniqueWords[i] !== 'o' && uniqueWords[i] !== 'a' && uniqueWords[i] !== 'as' && uniqueWords[i] !== 'os' && uniqueWords[i] !== 'de' && uniqueWords[i] !== 'da' && uniqueWords[i] !== 'do' && uniqueWords[i] !== 'das' && uniqueWords[i] !== 'dos' && uniqueWords[i] !== 'um' && uniqueWords[i] !== 'uma' && uniqueWords[i] !== 'uns' && uniqueWords[i] !== 'umas' && uniqueWords[i] !== 'e' && uniqueWords[i] !== 'em' && uniqueWords[i] !== 'na' && uniqueWords[i] !== 'no' && uniqueWords[i] !== 'seu' && uniqueWords[i] !== 'sua' && uniqueWords[i] !== 'ser' && uniqueWords[i] !== 'estar' && uniqueWords[i] !== 'é' && uniqueWords[i] !== 'com')
+                    document.getElementById("chave").innerHTML += "| <a class='pesquisa' target='_blank' href=https://www.google.com/search?q="+uniqueWords[i]+">"+count[i]+"x "+uniqueWords[i]+"</a> |"
+            }
+        }
     </script>
 </body>
 
