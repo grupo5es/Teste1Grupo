@@ -280,7 +280,15 @@
 
         .pesquisa {
             font-size: 20px;
+            font-weight: bolder;
         }
+        .logocalendario {
+            height: 30px;
+            width: 30px;
+            margin-bottom: -10px;
+            padding-bottom: -10px;
+        }
+
     </style>
 </head>
 
@@ -322,7 +330,7 @@
         <nav>
             <ul>
                 <li>
-                    <a target='_blank' href="paginas/calendario.html">Calendário</a>
+                    <a target='_blank' href="paginas/calendario.html">Agenda</a>
                 </li>
                 <li>
                     <a href="paginas/fontes.html">Fontes de pesquisa</a>
@@ -332,7 +340,7 @@
     </div>
 
     <section id="conteudo">
-
+        <a class="pesquisa" target='_blank' href="https://accounts.google.com/signin/v2/identifier?service=cl&passive=1209600&osid=1&continue=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&followup=https%3A%2F%2Fcalendar.google.com%2Fcalendar%2Frender&scc=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"><img class="logocalendario" src="../paginas/arquivos/LogoCalendario.png" alt="">Google agenda</a>
     </section>
     <script>
         document.querySelectorAll('a').forEach(link => {
@@ -402,6 +410,8 @@
             var count = new Array();
             var trocado;
             var aux;
+
+            document.getElementById("chave").innerHTML = "";
 
             for (var i = 0; i < words.length; i++) {
                 //var count=0;
